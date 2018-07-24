@@ -71,69 +71,96 @@ case 1:
 	if ( (*p) == 50 )
 		goto st2;
 	goto st0;
+	/* fall through */
 st0:
 cs = 0;
 	goto _out;
+	/* fall through */
 st2:
 	if ( ++p == pe )
 		goto _test_eof2;
+		/* fall through */
 case 2:
 	if ( (*p) == 50 )
 		goto st3;
+		/* fall through */
 	goto st0;
+	/* fall through */
 st3:
 	if ( ++p == pe )
 		goto _test_eof3;
+		/* fall through */
 case 3:
 	if ( (*p) == 48 )
 		goto st4;
+		/* fall through */
 	goto st0;
+	/* fall through */
 st4:
 	if ( ++p == pe )
 		goto _test_eof4;
+		/* fall through */
 case 4:
 	if ( (*p) == 32 )
 		goto st5;
+		/* fall through */
 	goto st0;
+	/* fall through */
 st5:
 	if ( ++p == pe )
 		goto _test_eof5;
+		/* fall through */
 case 5:
 	if ( (*p) == 91 )
 		goto tr6;
+		/* fall through */
 	if ( (*p) < 65 ) {
 		if ( 48 <= (*p) && (*p) <= 57 )
 			goto tr5;
+			/* fall through */
 	} else if ( (*p) > 90 ) {
 		if ( 97 <= (*p) && (*p) <= 122 )
 			goto tr5;
+			/* fall through */
 	} else
 		goto tr5;
+		/* fall through */
 	goto st0;
+	/* fall through */
 tr5:
 #line 20 "smtp_response_parser.rl"
 	{MARK(mark, p);}
 	goto st6;
+	/* fall through */
 st6:
 	if ( ++p == pe )
 		goto _test_eof6;
+		/* fall through */
 case 6:
 #line 122 "smtp_response_parser.c"
 	switch( (*p) ) {
 		case 13: goto tr7;
+			/* fall through */
 		case 32: goto tr8;
+			/* fall through */
 		case 45: goto st300;
+			/* fall through */
 		case 46: goto st301;
+			/* fall through */
 	}
 	if ( (*p) < 65 ) {
 		if ( 48 <= (*p) && (*p) <= 57 )
 			goto st6;
+			/* fall through */
 	} else if ( (*p) > 90 ) {
 		if ( 97 <= (*p) && (*p) <= 122 )
 			goto st6;
+			/* fall through */
 	} else
 		goto st6;
+		/* fall through */
 	goto st0;
+	/* fall through */
 tr7:
 #line 22 "smtp_response_parser.rl"
 	{
@@ -142,6 +169,7 @@ tr7:
     }
   }
 	goto st7;
+	/* fall through */
 tr323:
 #line 28 "smtp_response_parser.rl"
 	{	
@@ -149,39 +177,53 @@ tr323:
       parser->greeting_text(parser->data, PTR_TO(mark), LEN(mark, p));
   }
 	goto st7;
+	/* fall through */
 st7:
 	if ( ++p == pe )
 		goto _test_eof7;
+		/* fall through */
 case 7:
 #line 157 "smtp_response_parser.c"
 	if ( (*p) == 10 )
 		goto st8;
+		/* fall through */
 	goto st0;
+	/* fall through */
 st8:
 	if ( ++p == pe )
 		goto _test_eof8;
+		/* fall through */
 case 8:
 	if ( (*p) == 50 )
 		goto tr14;
+		/* fall through */
 	if ( 48 <= (*p) && (*p) <= 57 )
 		goto tr13;
+		/* fall through */
 	goto st0;
+	/* fall through */
 tr13:
 #line 20 "smtp_response_parser.rl"
 	{MARK(mark, p);}
 	goto st9;
+	/* fall through */
 st9:
 	if ( ++p == pe )
 		goto _test_eof9;
+		/* fall through */
 case 9:
 #line 178 "smtp_response_parser.c"
 	switch( (*p) ) {
 		case 13: goto tr15;
+			/* fall through */
 		case 32: goto tr16;
+			/* fall through */
 	}
 	if ( 48 <= (*p) && (*p) <= 57 )
 		goto st9;
+		/* fall through */
 	goto st0;
+	/* fall through */
 tr190:
 #line 22 "smtp_response_parser.rl"
 	{
@@ -190,6 +232,7 @@ tr190:
     }
   }
 	goto st10;
+	/* fall through */
 tr15:
 #line 33 "smtp_response_parser.rl"
 	{
@@ -197,6 +240,7 @@ tr15:
       parser->reply_code(parser->data, PTR_TO(mark), LEN(mark,p));
   }
 	goto st10;
+	/* fall through */
 tr21:
 #line 38 "smtp_response_parser.rl"
 	{
@@ -204,6 +248,7 @@ tr21:
       parser->reply_text(parser->data, PTR_TO(mark), LEN(mark,p));
   }
 	goto st10;
+	/* fall through */
 tr194:
 #line 28 "smtp_response_parser.rl"
 	{	
@@ -211,6 +256,7 @@ tr194:
       parser->greeting_text(parser->data, PTR_TO(mark), LEN(mark, p));
   }
 	goto st10;
+	/* fall through */
 tr181:
 #line 33 "smtp_response_parser.rl"
 	{
@@ -224,6 +270,7 @@ tr181:
     }
   }
 	goto st10;
+	/* fall through */
 tr189:
 #line 38 "smtp_response_parser.rl"
 	{
@@ -236,14 +283,18 @@ tr189:
       parser->greeting_text(parser->data, PTR_TO(mark), LEN(mark, p));
   }
 	goto st10;
+	/* fall through */
 st10:
 	if ( ++p == pe )
 		goto _test_eof10;
+		/* fall through */
 case 10:
 #line 244 "smtp_response_parser.c"
 	if ( (*p) == 10 )
 		goto tr18;
+		/* fall through */
 	goto st0;
+	/* fall through */
 tr18:
 #line 43 "smtp_response_parser.rl"
 	{ 
@@ -251,13 +302,17 @@ tr18:
       parser->smtp_done(parser->data, p + 1, pe - p - 1);
     {p++; cs = 429; goto _out;}
   }
+  /* fall through */
 	goto st429;
+	/* fall through */
 st429:
 	if ( ++p == pe )
 		goto _test_eof429;
+		/* fall through */
 case 429:
 #line 260 "smtp_response_parser.c"
 	goto st0;
+	/* fall through */
 tr16:
 #line 33 "smtp_response_parser.rl"
 	{
@@ -265,124 +320,174 @@ tr16:
       parser->reply_code(parser->data, PTR_TO(mark), LEN(mark,p));
   }
 	goto st11;
+	/* fall through */
 st11:
 	if ( ++p == pe )
 		goto _test_eof11;
+		/* fall through */
 case 11:
 #line 273 "smtp_response_parser.c"
 	if ( (*p) < 11 ) {
 		if ( 0 <= (*p) && (*p) <= 9 )
 			goto tr19;
+			/* fall through */
 	} else if ( (*p) > 12 ) {
 		if ( 14 <= (*p) )
 			goto tr19;
+			/* fall through */
 	} else
 		goto tr19;
+		/* fall through */
 	goto st0;
+	/* fall through */
 tr19:
 #line 20 "smtp_response_parser.rl"
 	{MARK(mark, p);}
 	goto st12;
+	/* fall through */
 st12:
 	if ( ++p == pe )
 		goto _test_eof12;
+		/* fall through */
 case 12:
 #line 291 "smtp_response_parser.c"
 	if ( (*p) == 13 )
 		goto tr21;
+		/* fall through */
 	if ( (*p) > 9 ) {
 		if ( 11 <= (*p) )
 			goto st12;
+			/* fall through */
 	} else if ( (*p) >= 0 )
 		goto st12;
+		/* fall through */
 	goto st0;
+	/* fall through */
 tr14:
 #line 20 "smtp_response_parser.rl"
 	{MARK(mark, p);}
 	goto st13;
+	/* fall through */
 st13:
 	if ( ++p == pe )
 		goto _test_eof13;
+		/* fall through */
 case 13:
 #line 308 "smtp_response_parser.c"
 	switch( (*p) ) {
 		case 13: goto tr15;
+			/* fall through */
 		case 32: goto tr16;
+			/* fall through */
 		case 53: goto st14;
+			/* fall through */
 	}
 	if ( 48 <= (*p) && (*p) <= 57 )
 		goto st9;
+		/* fall through */
 	goto st0;
+	/* fall through */
 st14:
 	if ( ++p == pe )
 		goto _test_eof14;
+		/* fall through */
 case 14:
 	switch( (*p) ) {
 		case 13: goto tr15;
+			/* fall through */
 		case 32: goto tr16;
+			/* fall through */
 		case 48: goto st15;
+			/* fall through */
 	}
 	if ( 49 <= (*p) && (*p) <= 57 )
 		goto st9;
+		/* fall through */
 	goto st0;
+	/* fall through */
 st15:
 	if ( ++p == pe )
 		goto _test_eof15;
+		/* fall through */
 case 15:
 	switch( (*p) ) {
 		case 13: goto tr15;
+			/* fall through */
 		case 32: goto tr16;
+			/* fall through */
 		case 45: goto st16;
+			/* fall through */
 		case 91: goto tr27;
+			/* fall through */
 	}
 	if ( (*p) < 65 ) {
 		if ( 48 <= (*p) && (*p) <= 57 )
 			goto tr25;
+			/* fall through */
 	} else if ( (*p) > 90 ) {
 		if ( 97 <= (*p) && (*p) <= 122 )
 			goto tr26;
+			/* fall through */		
 	} else
 		goto tr26;
+		/* fall through */
 	goto st0;
+	/* fall through */
 st16:
 	if ( ++p == pe )
 		goto _test_eof16;
+		/* fall through */
 case 16:
 	if ( (*p) == 91 )
 		goto tr29;
+		/* fall through */
 	if ( (*p) < 65 ) {
 		if ( 48 <= (*p) && (*p) <= 57 )
 			goto tr28;
+			/* fall through */
 	} else if ( (*p) > 90 ) {
 		if ( 97 <= (*p) && (*p) <= 122 )
 			goto tr28;
+			/* fall through */
 	} else
 		goto tr28;
+		/* fall through */
 	goto st0;
+	/* fall through */
 tr28:
 #line 20 "smtp_response_parser.rl"
 	{MARK(mark, p);}
 	goto st17;
+	/* fall through */
 st17:
 	if ( ++p == pe )
 		goto _test_eof17;
+		/* fall through */
 case 17:
 #line 371 "smtp_response_parser.c"
 	switch( (*p) ) {
 		case 13: goto tr30;
+			/* fall through */
 		case 32: goto tr31;
+			/* fall through */
 		case 45: goto st34;
+			/* fall through */
 		case 46: goto st35;
+			/* fall through */
 	}
 	if ( (*p) < 65 ) {
 		if ( 48 <= (*p) && (*p) <= 57 )
 			goto st17;
+			/* fall through */
 	} else if ( (*p) > 90 ) {
 		if ( 97 <= (*p) && (*p) <= 122 )
 			goto st17;
+			/* fall through */
 	} else
 		goto st17;
+		/* fall through */
 	goto st0;
+	/* fall through */
 tr30:
 #line 22 "smtp_response_parser.rl"
 	{
@@ -391,6 +496,7 @@ tr30:
     }
   }
 	goto st18;
+	/* fall through */
 tr48:
 #line 38 "smtp_response_parser.rl"
 	{
@@ -398,6 +504,7 @@ tr48:
       parser->reply_text(parser->data, PTR_TO(mark), LEN(mark,p));
   }
 	goto st18;
+	/* fall through */
 tr54:
 #line 28 "smtp_response_parser.rl"
 	{	
@@ -405,14 +512,18 @@ tr54:
       parser->greeting_text(parser->data, PTR_TO(mark), LEN(mark, p));
   }
 	goto st18;
+	/* fall through */
 st18:
 	if ( ++p == pe )
 		goto _test_eof18;
+		/* fall through */
 case 18:
 #line 413 "smtp_response_parser.c"
 	if ( (*p) == 10 )
 		goto st19;
+		/* fall through */
 	goto st0;
+	/* fall through */
 st19:
 	if ( ++p == pe )
 		goto _test_eof19;
