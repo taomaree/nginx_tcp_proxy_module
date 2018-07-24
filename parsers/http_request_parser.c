@@ -73,48 +73,65 @@ size_t http_request_parser_execute(http_request_parser *parser, const signed cha
 	{
 	if ( p == pe )
 		goto _test_eof;
+		/* fall through */
 	switch ( cs )
 	{
 case 1:
 	switch( (*p) ) {
 		case 36: goto tr0;
+			/* fall through */
 		case 95: goto tr0;
+			/* fall through */
 	}
 	if ( (*p) < 48 ) {
 		if ( 45 <= (*p) && (*p) <= 46 )
 			goto tr0;
+			/* fall through */
 	} else if ( (*p) > 57 ) {
 		if ( 65 <= (*p) && (*p) <= 90 )
 			goto tr0;
+			/* fall through */
 	} else
 		goto tr0;
+		/* fall through */
 	goto st0;
+	/* fall through */
 st0:
 cs = 0;
 	goto _out;
+	/* fall through */
 tr0:
 #line 26 "http_request_parser.rl"
 	{MARK(mark, p); }
 	goto st2;
+	/* fall through */
 st2:
 	if ( ++p == pe )
 		goto _test_eof2;
+		/* fall through */
 case 2:
 #line 104 "http_request_parser.c"
 	switch( (*p) ) {
 		case 32: goto tr2;
+			/* fall through */
 		case 36: goto st38;
+			/* fall through */
 		case 95: goto st38;
+			/* fall through */
 	}
 	if ( (*p) < 48 ) {
 		if ( 45 <= (*p) && (*p) <= 46 )
 			goto st38;
+			/* fall through */
 	} else if ( (*p) > 57 ) {
 		if ( 65 <= (*p) && (*p) <= 90 )
 			goto st38;
+			/* fall through */
 	} else
 		goto st38;
+		/* fall through */
 	goto st0;
+	/* fall through */
 tr2:
 #line 40 "http_request_parser.rl"
 	{ 
@@ -122,40 +139,55 @@ tr2:
       parser->request_method(parser->data, PTR_TO(mark), LEN(mark, p));
   }
 	goto st3;
+	/* fall through */
 st3:
 	if ( ++p == pe )
 		goto _test_eof3;
+		/* fall through */
 case 3:
 #line 130 "http_request_parser.c"
 	switch( (*p) ) {
 		case 42: goto tr4;
+			/* fall through */
 		case 43: goto tr5;
+			/* fall through */
 		case 47: goto tr6;
+			/* fall through */
 		case 58: goto tr7;
+			/* fall through */
 	}
 	if ( (*p) < 65 ) {
 		if ( 45 <= (*p) && (*p) <= 57 )
 			goto tr5;
+			/* fall through */
 	} else if ( (*p) > 90 ) {
 		if ( 97 <= (*p) && (*p) <= 122 )
 			goto tr5;
+			/* fall through */
 	} else
 		goto tr5;
+		/* fall through */
 	goto st0;
+	/* fall through */
 tr4:
 #line 26 "http_request_parser.rl"
 	{MARK(mark, p); }
 	goto st4;
+	/* fall through */
 st4:
 	if ( ++p == pe )
 		goto _test_eof4;
+		/* fall through */
 case 4:
 #line 154 "http_request_parser.c"
 	switch( (*p) ) {
 		case 32: goto tr8;
+			/* fall through */
 		case 35: goto tr9;
+			/* fall through */
 	}
 	goto st0;
+	/* fall through */
 tr8:
 #line 44 "http_request_parser.rl"
 	{ 
@@ -163,6 +195,7 @@ tr8:
       parser->request_uri(parser->data, PTR_TO(mark), LEN(mark, p));
   }
 	goto st5;
+	/* fall through */
 tr31:
 #line 26 "http_request_parser.rl"
 	{MARK(mark, p); }
@@ -172,6 +205,7 @@ tr31:
       parser->fragment(parser->data, PTR_TO(mark), LEN(mark, p));
   }
 	goto st5;
+	/* fall through */
 tr34:
 #line 48 "http_request_parser.rl"
 	{
@@ -179,6 +213,7 @@ tr34:
       parser->fragment(parser->data, PTR_TO(mark), LEN(mark, p));
   }
 	goto st5;
+	/* fall through */
 tr42:
 #line 64 "http_request_parser.rl"
 	{
@@ -191,6 +226,7 @@ tr42:
       parser->request_uri(parser->data, PTR_TO(mark), LEN(mark, p));
   }
 	goto st5;
+	/* fall through */
 tr53:
 #line 53 "http_request_parser.rl"
 	{MARK(query_start, p); }
@@ -205,6 +241,7 @@ tr53:
       parser->request_uri(parser->data, PTR_TO(mark), LEN(mark, p));
   }
 	goto st5;
+	/* fall through */
 tr57:
 #line 54 "http_request_parser.rl"
 	{ 
@@ -217,36 +254,48 @@ tr57:
       parser->request_uri(parser->data, PTR_TO(mark), LEN(mark, p));
   }
 	goto st5;
+	/* fall through */
 st5:
 	if ( ++p == pe )
 		goto _test_eof5;
+		/* fall through */
 case 5:
 #line 225 "http_request_parser.c"
 	if ( (*p) == 72 )
 		goto tr10;
+		/* fall through */
 	goto st0;
+	/* fall through */
 tr10:
 #line 26 "http_request_parser.rl"
 	{MARK(mark, p); }
 	goto st6;
+	/* fall through */
 st6:
 	if ( ++p == pe )
 		goto _test_eof6;
+		/* fall through */
 case 6:
 #line 237 "http_request_parser.c"
 	if ( (*p) == 84 )
 		goto st7;
+		/* fall through */
 	goto st0;
+	/* fall through */
 st7:
 	if ( ++p == pe )
 		goto _test_eof7;
+		/* fall through */
 case 7:
 	if ( (*p) == 84 )
 		goto st8;
+		/* fall through */
 	goto st0;
+	/* fall through */
 st8:
 	if ( ++p == pe )
 		goto _test_eof8;
+		/* fall through */
 case 8:
 	if ( (*p) == 80 )
 		goto st9;
